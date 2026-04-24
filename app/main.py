@@ -1,10 +1,10 @@
-from typing import Callable
+from typing import Callable, Any
 
 
 def cache(func: Callable) -> Callable:
     stored_results = {}
 
-    def wrapper(*args):
+    def wrapper(*args: Any) -> Any:
         if args not in stored_results:
             print("Calculating new result")
             stored_results[args] = func(*args)
